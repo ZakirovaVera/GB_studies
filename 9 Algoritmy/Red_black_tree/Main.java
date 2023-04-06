@@ -24,6 +24,7 @@ public class Main {
         tree.add(100);
         tree.add(7);
         tree.add(46);
+        tree.add(24);
 
         tree.printTree();
     }
