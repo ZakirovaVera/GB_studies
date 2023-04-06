@@ -15,9 +15,16 @@
 public class Main {
     public static void main(String[] args) {
         RBTree<Integer> tree = new RBTree<>();
+        tree.add(40);
         tree.add(4);
-        tree.add(5);
-        tree.add(2);
-        System.out.println(tree.contains(5));
+        tree.add(23);
+        tree.add(0);
+        tree.add(7);
+        tree.add(14);
+        tree.add(100);
+        tree.add(7);
+        tree.add(46);
+
+        tree.printTree();
     }
 }

@@ -33,6 +33,12 @@ public class RBTree<T extends Comparable<T>> {
         }
     }
 
+    public void printTree() {
+        if (root != null) {
+            root.printNode(1, "Root");
+        }
+    }
+
     private boolean addNode(Node node, T value) {
         if (node.value == value) {
             return false;
@@ -120,10 +126,36 @@ public class RBTree<T extends Comparable<T>> {
 
     private class Node {
         private T value;
-
         private Color color;
+
         private Node left;
         private Node rigth;
+
+        public void printNode(int level, String typeBranch) {
+            String text = typeBranch + " Value = " + value.toString() + " Color = " + color.toString();
+            int padCount = level;
+            if (level > 1) {
+                padCount = level + 5;
+            }
+            text = padLeft(text, padCount);
+            System.out.println(text);
+
+            printChild(level + 1);
+        }
+
+        public void printChild(int level) {
+            if (rigth != null) {
+                rigth.printNode(level, "Right");
+            }
+            if (left != null) {
+                left.printNode(level, "Left");
+            }
+        }
+
+        public static String padLeft(String s, int n) {
+            n = n + s.length();
+            return String.format("%" + n + "s", s);
+        }
     }
 
     private enum Color {
