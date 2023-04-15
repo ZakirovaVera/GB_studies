@@ -21,10 +21,8 @@ public class task1 {
                 endWhile = true;
                 scanner.close();
             } catch (Exception e) {
-                System.out.println(e);
+                // System.out.println(e);
             }
-
         }
-
     }
 }
