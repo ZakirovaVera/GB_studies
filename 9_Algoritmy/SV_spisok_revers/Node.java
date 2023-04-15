@@ -1,3 +1,4 @@
+package SV_spisok_revers;
 public class Node {
     int value;
     Node next;
