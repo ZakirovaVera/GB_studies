@@ -1,6 +1,7 @@
 import java.util.Date;
 
 public class Data {
+    public static final Integer CountFields = 6;
     private String family;
     private String name;
     private String otchestvo;
