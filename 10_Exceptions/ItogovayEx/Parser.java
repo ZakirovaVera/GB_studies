@@ -1,3 +1,5 @@
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.GregorianCalendar;
@@ -33,23 +35,16 @@ public class Parser {
 
     // Распарсить в дату рождения.
     private String parseToDOB(String data) throws FormatDataException {
+        final String baseErrorMessage = "Некорректные данные - Дата рождения. Формат даты не соответствует dd.mm.yyyy";
+
         try {
-            String[] parts = data.split(".");
-
-            if (parts.length < 3) {
-                throw new FormatDataException("Необходимо 3 части через точку.");
-            }
-
-            new GregorianCalendar(
-                    Integer.parseInt(parts[2]),
-                    Integer.parseInt(parts[1]),
-                    Integer.parseInt(parts[0]));
+            DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+            df.setLenient(false);
+            df.parse(data);
 
             return data;
-        } catch (FormatDataException e) {
-            throw e;
         } catch (Exception e) {
-            throw new FormatDataException("Некорректные данные - Дата рождения.");
+            throw new FormatDataException(baseErrorMessage);
         }
     }
 
