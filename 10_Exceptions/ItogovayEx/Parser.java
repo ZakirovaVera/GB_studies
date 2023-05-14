@@ -2,7 +2,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 public class Parser {
@@ -63,7 +62,7 @@ public class Parser {
 
     private String stringToCamelCase(String data) {
         String part1 = data.substring(0, 1);
-        String part2 = data.substring(1, data.length() - 1);
+        String part2 = data.substring(1, data.length());
         String result = part1.toUpperCase() + part2.toLowerCase();
         return result;
     }
